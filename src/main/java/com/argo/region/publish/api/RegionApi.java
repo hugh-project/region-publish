@@ -1,5 +1,6 @@
 package com.argo.region.publish.api;
 
+import com.argo.region.publish.model.RegionRes;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +24,5 @@ public interface RegionApi {
 
     @ApiOperation(value = "查询行政区划", nickname = "searchRegions", notes = "通过参数实现对中国行政区划的查询。行政区划共分为5级， 从省/自治区/直辖市到街道办事处和村委会。返回的行政区划数据按照行政区划码进行排序。", responseContainer = "List", tags={  })
     @RequestMapping(value = "/region",  produces = { "application/json" }, method = RequestMethod.GET)
-    ResponseEntity searchRegions();
+    ResponseEntity<RegionRes> searchRegions(String id, String name);
 }
